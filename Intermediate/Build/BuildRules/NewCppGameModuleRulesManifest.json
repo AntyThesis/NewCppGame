@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Unreal Projects\\NewCppGame\\Source\\NewCppGame\\NewCppGame.Build.cs",
+		"D:\\Unreal Projects\\NewCppGame\\Source\\NewCppGame.Target.cs",
+		"D:\\Unreal Projects\\NewCppGame\\Source\\NewCppGameEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.3"
+}
