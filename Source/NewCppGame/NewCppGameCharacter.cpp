@@ -10,6 +10,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "healthComponent.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -52,6 +53,11 @@ ANewCppGameCharacter::ANewCppGameCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+
+	//Create health component
+	HealthComponent = CreateDefaultSubobject<UhealthComponent>(TEXT("HealthComponent"));
+
+
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -125,5 +131,40 @@ void ANewCppGameCharacter::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+	}
+}
+
+// Begin play event
+void ANewCppGameCharacter::BeginPlay() {
+	Super::BeginPlay();
+
+	Mesh = this->GetMesh();
+	PlayerController = Cast<APlayerController>(GetController());
+
+	if (HealthComponent) {
+
+		// Bind delegates
+		HealthComponent->OnHealthChanged.AddDynamic(this, ANewCppGameCharacter::HandleHealthChange);
+		HealthComponent->OnDeath.AddDynamic(this, ANewCppGameCharacter::HandleDeath);
+
+
+		if (GEngine) {
+			GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), HealthComponent->MaxHealth));
+		}
+	}
+}
+
+void ANewCppGameCharacter::HandleHealthChange() {
+	if (GEngine) {
+		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), HealthComponent->CurrentHealth));
+	}
+}
+
+void ANewCppGameCharacter::HandleDeath() {
+	if (Mesh) {
+		Mesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		Mesh->SetSimulatePhysics(true);
+		PlayerController->DisableInput(PlayerController);
+
 	}
 }

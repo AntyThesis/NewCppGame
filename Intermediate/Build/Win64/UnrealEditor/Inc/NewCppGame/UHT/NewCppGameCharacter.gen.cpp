@@ -17,12 +17,77 @@ ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 NEWCPPGAME_API UClass* Z_Construct_UClass_ANewCppGameCharacter();
 NEWCPPGAME_API UClass* Z_Construct_UClass_ANewCppGameCharacter_NoRegister();
+NEWCPPGAME_API UClass* Z_Construct_UClass_UhealthComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_NewCppGame();
 // End Cross Module References
+
+// Begin Class ANewCppGameCharacter Function HandleDeath
+struct Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "NewCppGameCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANewCppGameCharacter, nullptr, "HandleDeath", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath_Statics::Function_MetaDataParams), Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ANewCppGameCharacter::execHandleDeath)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->HandleDeath();
+	P_NATIVE_END;
+}
+// End Class ANewCppGameCharacter Function HandleDeath
+
+// Begin Class ANewCppGameCharacter Function HandleHealthChange
+struct Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "NewCppGameCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANewCppGameCharacter, nullptr, "HandleHealthChange", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange_Statics::Function_MetaDataParams), Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ANewCppGameCharacter::execHandleHealthChange)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->HandleHealthChange();
+	P_NATIVE_END;
+}
+// End Class ANewCppGameCharacter Function HandleHealthChange
 
 // Begin Class ANewCppGameCharacter
 void ANewCppGameCharacter::StaticRegisterNativesANewCppGameCharacter()
 {
+	UClass* Class = ANewCppGameCharacter::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "HandleDeath", &ANewCppGameCharacter::execHandleDeath },
+		{ "HandleHealthChange", &ANewCppGameCharacter::execHandleHealthChange },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ANewCppGameCharacter);
 UClass* Z_Construct_UClass_ANewCppGameCharacter_NoRegister()
@@ -105,6 +170,12 @@ struct Z_Construct_UClass_ANewCppGameCharacter_Statics
 		{ "ToolTip", "Look Input Action" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HealthComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Health" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "NewCppGameCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
@@ -112,8 +183,14 @@ struct Z_Construct_UClass_ANewCppGameCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_JumpAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_HealthComponent;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath, "HandleDeath" }, // 2185715329
+		{ &Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange, "HandleHealthChange" }, // 2477676885
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANewCppGameCharacter>::IsAbstract,
 	};
@@ -125,6 +202,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCha
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_JumpAction = { "JumpAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, JumpAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_JumpAction_MetaData), NewProp_JumpAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookAction_MetaData), NewProp_LookAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_HealthComponent = { "HealthComponent", nullptr, (EPropertyFlags)0x004000000008001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, HealthComponent), Z_Construct_UClass_UhealthComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HealthComponent_MetaData), NewProp_HealthComponent_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANewCppGameCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_CameraBoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_FollowCamera,
@@ -132,6 +210,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANewCppGa
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_JumpAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_MoveAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_LookAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_HealthComponent,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ANewCppGameCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ANewCppGameCharacter_Statics::DependentSingletons[])() = {
@@ -144,11 +223,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ANewCppGameCharacter_St
 	"Game",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_ANewCppGameCharacter_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_ANewCppGameCharacter_Statics::PropPointers),
 	0,
 	0x008000A4u,
@@ -174,10 +253,10 @@ ANewCppGameCharacter::~ANewCppGameCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANewCppGameCharacter, ANewCppGameCharacter::StaticClass, TEXT("ANewCppGameCharacter"), &Z_Registration_Info_UClass_ANewCppGameCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANewCppGameCharacter), 3847028203U) },
+		{ Z_Construct_UClass_ANewCppGameCharacter, ANewCppGameCharacter::StaticClass, TEXT("ANewCppGameCharacter"), &Z_Registration_Info_UClass_ANewCppGameCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANewCppGameCharacter), 3913705037U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_2170401514(TEXT("/Script/NewCppGame"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_3987959527(TEXT("/Script/NewCppGame"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

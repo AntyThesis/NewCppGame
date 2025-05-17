@@ -12,6 +12,7 @@ class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
+class UhealthComponent;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -27,7 +28,7 @@ class ANewCppGameCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FollowCamera;
-	
+
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* DefaultMappingContext;
@@ -44,10 +45,19 @@ class ANewCppGameCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Health, meta = (AllowPrivateAccess = "true"))
+	UhealthComponent* HealthComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category "Mesh", meta = (AllowPrivateAccess = "true"));
+	USkeletalMeshComponent* Mesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category "Controller", meta = (AllowPrivateAccess = "true"));
+	APlayerController* PlayerController;
+
 public:
 	ANewCppGameCharacter();
 	
-
+	
 protected:
 
 	/** Called for movement input */
@@ -59,6 +69,8 @@ protected:
 
 protected:
 
+	virtual void BeginPlay() override;
+
 	virtual void NotifyControllerChanged() override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -68,5 +80,11 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	UFUNCTION(BlueprintCallable)
+	void HandleHealthChange();
+
+	UFUNCTION(BlueprintCallable)
+	void HandleDeath();
 };
 
