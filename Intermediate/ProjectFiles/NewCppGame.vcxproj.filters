@@ -81,5 +81,11 @@
     <ClCompile Include="..\..\Source\NewCppGame\NewCppGameGameMode.h">
       <Filter>Source\NewCppGame</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\PatrolTask.cpp">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\PatrolTask.h">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
