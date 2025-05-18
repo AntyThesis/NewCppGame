@@ -138,19 +138,13 @@ void ANewCppGameCharacter::Look(const FInputActionValue& Value)
 void ANewCppGameCharacter::BeginPlay() {
 	Super::BeginPlay();
 
-	Mesh = this->GetMesh();
-	PlayerController = Cast<APlayerController>(GetController());
-
 	if (HealthComponent) {
 
 		// Bind delegates
-		HealthComponent->OnHealthChanged.AddDynamic(this, ANewCppGameCharacter::HandleHealthChange);
-		HealthComponent->OnDeath.AddDynamic(this, ANewCppGameCharacter::HandleDeath);
+		HealthComponent->OnHealthChanged.AddDynamic(this, &ANewCppGameCharacter::HandleHealthChange);
+		HealthComponent->OnDeath.AddDynamic(this, &ANewCppGameCharacter::HandleDeath);
 
-
-		if (GEngine) {
-			GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), HealthComponent->MaxHealth));
-		}
+	
 	}
 }
 
@@ -161,10 +155,19 @@ void ANewCppGameCharacter::HandleHealthChange() {
 }
 
 void ANewCppGameCharacter::HandleDeath() {
-	if (Mesh) {
-		Mesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-		Mesh->SetSimulatePhysics(true);
-		PlayerController->DisableInput(PlayerController);
 
-	}
+
+	if (GetMesh()) {
+		// GetMesh()->SetCollisionProfileName(TEXT("Ragdoll"));
+		GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		GetMesh()->SetSimulatePhysics(true);
+			}
+	
+
+		//APlayerController* PlayerController = Cast<APlayerController>(GetController());
+	APlayerController* UserCon = Cast<APlayerController>(GetController());
+	if (UserCon){
+
+			UserCon->DisableInput(UserCon);
+		}
 }

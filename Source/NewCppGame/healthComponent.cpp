@@ -25,6 +25,9 @@ void UhealthComponent::BeginPlay()
 	// ...
 
 	CurrentHealth = MaxHealth;
+	if (GEngine) {
+		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), MaxHealth));
+	}
 	
 }
 
@@ -46,5 +49,8 @@ void UhealthComponent::AffectHealth(float HealthChangeAmount) {
 }
 
 void UhealthComponent::RIP() {
+	if (GEngine) {
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, FString::Printf(TEXT("Dead")));
+	}
 	OnDeath.Broadcast();
 }

@@ -6,7 +6,14 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"D:/Unreal Projects/NewCppGame/Content/StarterContent/Shapes/Shape_Cone.uasset",
-				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Maps/ThirdPersonMap.umap"
+				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Maps/ThirdPersonMap.umap",
+				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Blueprints/BP_EnemyCharacter.uasset",
+				"D:/Unreal Projects/NewCppGame/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/AC/5APZVM3V39PF32VI7DSDZ9.uasset",
+				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Blueprints/AI/BB_EnemyBehavior.uasset",
+				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Blueprints/AI/BT_EnemyBehavior.uasset",
+				"D:/Unreal Projects/NewCppGame/Content/ThirdPerson/Blueprints/AI/BP_EnemyController.uasset",
+				"D:/Unreal Projects/NewCppGame/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/F/33/S5VDBBD1IC66JHSXG6QRX9.uasset"
 			]
 		}
 	]

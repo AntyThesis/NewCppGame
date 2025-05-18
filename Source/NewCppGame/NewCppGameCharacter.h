@@ -48,12 +48,6 @@ class ANewCppGameCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Health, meta = (AllowPrivateAccess = "true"))
 	UhealthComponent* HealthComponent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category "Mesh", meta = (AllowPrivateAccess = "true"));
-	USkeletalMeshComponent* Mesh;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category "Controller", meta = (AllowPrivateAccess = "true"));
-	APlayerController* PlayerController;
-
 public:
 	ANewCppGameCharacter();
 	

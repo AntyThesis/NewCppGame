@@ -36,6 +36,18 @@
     <Filter Include="Source\NewCppGame">
       <UniqueIdentifier>{533A2A03-3641-3C56-AA0E-0993DE8933EA}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\NewCppGame\EnemyCharacter.cpp">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\EnemyCharacter.h">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\EnemyController.cpp">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\EnemyController.h">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\NewCppGame\enemySplosion.cpp">
       <Filter>Source\NewCppGame</Filter>
     </ClCompile>
