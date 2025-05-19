@@ -5,6 +5,7 @@
 #include "AIController.h"
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
+#include "EnemyController.h"
 
 
 UPatrolTask::UPatrolTask() {
@@ -14,21 +15,24 @@ UPatrolTask::UPatrolTask() {
 EBTNodeResult::Type UPatrolTask::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) {
 	APawn* ControlledPawn = OwnerComp.GetAIOwner()->GetPawn();
 	FVector origin = ControlledPawn->GetActorLocation();
-	float PatrolRadius = 300.f;
+	float PatrolRadius = 1000.f;
 	FNavLocation RandomPatrolPoint;
-	
+
 	if (UNavigationSystemV1* NavSys = UNavigationSystemV1::GetCurrent(GetWorld())) {
 		bool bfound = NavSys->GetRandomReachablePointInRadius(origin, PatrolRadius, RandomPatrolPoint);
-		
+
 		if (bfound) {
 			FVector PatrolLocation = RandomPatrolPoint.Location;
-			AAIController* EnemyController = OwnerComp.GetAIOwner();
+			AEnemyController* EnemyController = Cast<AEnemyController>(OwnerComp.GetAIOwner());
 			if (EnemyController) {
 				EnemyController->MoveToLocation(PatrolLocation);
 				return EBTNodeResult::Succeeded;
 			}
-			
+			else {
+				return EBTNodeResult::Failed;
+			}
 		}
-	}
-	return EBTNodeResult::Failed;
+	} return EBTNodeResult::Failed;
 }
+
+

@@ -4,9 +4,10 @@
 #include "EnemyController.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "Navigation/PathFollowingComponent.h"
 
 AEnemyController::AEnemyController() {
-	BlackBoardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
+	
 
 
 }
@@ -37,3 +38,15 @@ void AEnemyController::OnPossess(APawn* ControlledPawn) {
 		}
 	}
 }
+
+/*void AEnemyController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) {
+
+	Super::OnMoveCompleted(RequestID,Result);
+
+	if (Result.IsSuccess()) {
+		BlackBoardComponent->SetValueAsBool("MoveSuccesful", true);
+	}
+	else {
+		BlackBoardComponent->SetValueAsBool("MoveSuccesful", false);
+	}
+}*/

@@ -47,9 +47,15 @@ struct Z_Construct_UClass_AEnemyController_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "EnemyController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MoveSuccessful_MetaData[] = {
+		{ "Category", "EnemyController" },
+		{ "ModuleRelativePath", "EnemyController.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BehaviorTreeAsset;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackBoardComponent;
+	static void NewProp_MoveSuccessful_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_MoveSuccessful;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -59,9 +65,15 @@ struct Z_Construct_UClass_AEnemyController_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyController_Statics::NewProp_BehaviorTreeAsset = { "BehaviorTreeAsset", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemyController, BehaviorTreeAsset), Z_Construct_UClass_UBehaviorTree_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BehaviorTreeAsset_MetaData), NewProp_BehaviorTreeAsset_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyController_Statics::NewProp_BlackBoardComponent = { "BlackBoardComponent", nullptr, (EPropertyFlags)0x0010000000090009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemyController, BlackBoardComponent), Z_Construct_UClass_UBlackboardComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackBoardComponent_MetaData), NewProp_BlackBoardComponent_MetaData) };
+void Z_Construct_UClass_AEnemyController_Statics::NewProp_MoveSuccessful_SetBit(void* Obj)
+{
+	((AEnemyController*)Obj)->MoveSuccessful = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AEnemyController_Statics::NewProp_MoveSuccessful = { "MoveSuccessful", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AEnemyController), &Z_Construct_UClass_AEnemyController_Statics::NewProp_MoveSuccessful_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveSuccessful_MetaData), NewProp_MoveSuccessful_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemyController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyController_Statics::NewProp_BehaviorTreeAsset,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyController_Statics::NewProp_BlackBoardComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyController_Statics::NewProp_MoveSuccessful,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AEnemyController_Statics::DependentSingletons[])() = {
@@ -104,10 +116,10 @@ AEnemyController::~AEnemyController() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemyController, AEnemyController::StaticClass, TEXT("AEnemyController"), &Z_Registration_Info_UClass_AEnemyController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyController), 1930645692U) },
+		{ Z_Construct_UClass_AEnemyController, AEnemyController::StaticClass, TEXT("AEnemyController"), &Z_Registration_Info_UClass_AEnemyController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyController), 1497027900U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyController_h_2644981285(TEXT("/Script/NewCppGame"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyController_h_2106883325(TEXT("/Script/NewCppGame"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

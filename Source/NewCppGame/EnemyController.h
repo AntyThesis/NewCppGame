@@ -16,12 +16,15 @@ class NEWCPPGAME_API AEnemyController : public AAIController
 {
 	GENERATED_BODY()
 public:
-	
+
 	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	UBehaviorTree* BehaviorTreeAsset;
 
 	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	UBlackboardComponent* BlackBoardComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool MoveSuccessful;
 
 protected:
 
@@ -29,8 +32,11 @@ protected:
 
 
 public:
-	
+
 	AEnemyController();
 
+
 	virtual void BeginPlay() override;
+
+	//virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 };

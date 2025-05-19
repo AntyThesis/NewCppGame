@@ -6,6 +6,8 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "PatrolTask.generated.h"
 
+
+class AEnemyController;
 /**
  * 
  */
