@@ -5,7 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include <EnhancedInputSubsystemInterface.h>
 #include "NewCppGameCharacter.generated.h"
+
 
 class USpringArmComponent;
 class UCameraComponent;
@@ -46,6 +48,9 @@ class ANewCppGameCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* Interaction;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Health, meta = (AllowPrivateAccess = "true"))
 	UhealthComponent* HealthComponent;
 
@@ -84,5 +89,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void HandleDeath();
+
+	UFUNCTION(BlueprintCallable)
+	void Overlap(const FInputActionInstance& Instance);
 };
 

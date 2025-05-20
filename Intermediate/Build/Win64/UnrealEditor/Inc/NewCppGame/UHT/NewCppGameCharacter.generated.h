@@ -9,17 +9,19 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FInputActionInstance;
 #ifdef NEWCPPGAME_NewCppGameCharacter_generated_h
 #error "NewCppGameCharacter.generated.h already included, missing '#pragma once' in NewCppGameCharacter.h"
 #endif
 #define NEWCPPGAME_NewCppGameCharacter_generated_h
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOverlap); \
 	DECLARE_FUNCTION(execHandleDeath); \
 	DECLARE_FUNCTION(execHandleHealthChange);
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANewCppGameCharacter(); \
 	friend struct Z_Construct_UClass_ANewCppGameCharacter_Statics; \
@@ -28,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(ANewCppGameCharacter)
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ANewCppGameCharacter(ANewCppGameCharacter&&); \
@@ -40,13 +42,13 @@ public: \
 	NO_API virtual ~ANewCppGameCharacter();
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_20_PROLOG
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_GENERATED_BODY \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_22_PROLOG
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_23_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

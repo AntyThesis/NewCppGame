@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "NewCppGame/NewCppGameCharacter.h"
+#include "EnhancedInput/Public/InputAction.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNewCppGameCharacter() {}
 
@@ -15,6 +16,7 @@ ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
+ENHANCEDINPUT_API UScriptStruct* Z_Construct_UScriptStruct_FInputActionInstance();
 NEWCPPGAME_API UClass* Z_Construct_UClass_AItemBase_NoRegister();
 NEWCPPGAME_API UClass* Z_Construct_UClass_ANewCppGameCharacter();
 NEWCPPGAME_API UClass* Z_Construct_UClass_ANewCppGameCharacter_NoRegister();
@@ -80,6 +82,51 @@ DEFINE_FUNCTION(ANewCppGameCharacter::execHandleHealthChange)
 }
 // End Class ANewCppGameCharacter Function HandleHealthChange
 
+// Begin Class ANewCppGameCharacter Function Overlap
+struct Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics
+{
+	struct NewCppGameCharacter_eventOverlap_Parms
+	{
+		FInputActionInstance Instance;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "NewCppGameCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Instance_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Instance;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::NewProp_Instance = { "Instance", nullptr, (EPropertyFlags)0x0010008008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NewCppGameCharacter_eventOverlap_Parms, Instance), Z_Construct_UScriptStruct_FInputActionInstance, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Instance_MetaData), NewProp_Instance_MetaData) }; // 1467082250
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::NewProp_Instance,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANewCppGameCharacter, nullptr, "Overlap", nullptr, nullptr, Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::PropPointers), sizeof(Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::NewCppGameCharacter_eventOverlap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::Function_MetaDataParams), Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::NewCppGameCharacter_eventOverlap_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ANewCppGameCharacter_Overlap()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANewCppGameCharacter_Overlap_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ANewCppGameCharacter::execOverlap)
+{
+	P_GET_STRUCT_REF(FInputActionInstance,Z_Param_Out_Instance);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Overlap(Z_Param_Out_Instance);
+	P_NATIVE_END;
+}
+// End Class ANewCppGameCharacter Function Overlap
+
 // Begin Class ANewCppGameCharacter
 void ANewCppGameCharacter::StaticRegisterNativesANewCppGameCharacter()
 {
@@ -87,6 +134,7 @@ void ANewCppGameCharacter::StaticRegisterNativesANewCppGameCharacter()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "HandleDeath", &ANewCppGameCharacter::execHandleDeath },
 		{ "HandleHealthChange", &ANewCppGameCharacter::execHandleHealthChange },
+		{ "Overlap", &ANewCppGameCharacter::execOverlap },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -171,6 +219,11 @@ struct Z_Construct_UClass_ANewCppGameCharacter_Statics
 		{ "ToolTip", "Look Input Action" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Interaction_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "NewCppGameCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HealthComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Health" },
@@ -188,6 +241,7 @@ struct Z_Construct_UClass_ANewCppGameCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_JumpAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Interaction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_HealthComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Inventory_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Inventory;
@@ -196,6 +250,7 @@ struct Z_Construct_UClass_ANewCppGameCharacter_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ANewCppGameCharacter_HandleDeath, "HandleDeath" }, // 2185715329
 		{ &Z_Construct_UFunction_ANewCppGameCharacter_HandleHealthChange, "HandleHealthChange" }, // 2477676885
+		{ &Z_Construct_UFunction_ANewCppGameCharacter_Overlap, "Overlap" }, // 4091402475
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -209,6 +264,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCha
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_JumpAction = { "JumpAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, JumpAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_JumpAction_MetaData), NewProp_JumpAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookAction_MetaData), NewProp_LookAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_Interaction = { "Interaction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, Interaction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Interaction_MetaData), NewProp_Interaction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_HealthComponent = { "HealthComponent", nullptr, (EPropertyFlags)0x004000000008001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, HealthComponent), Z_Construct_UClass_UhealthComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HealthComponent_MetaData), NewProp_HealthComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_Inventory_Inner = { "Inventory", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AItemBase_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_Inventory = { "Inventory", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANewCppGameCharacter, Inventory), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Inventory_MetaData), NewProp_Inventory_MetaData) };
@@ -219,6 +275,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANewCppGa
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_JumpAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_MoveAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_LookAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_Interaction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_HealthComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_Inventory_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANewCppGameCharacter_Statics::NewProp_Inventory,
@@ -264,10 +321,10 @@ ANewCppGameCharacter::~ANewCppGameCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANewCppGameCharacter, ANewCppGameCharacter::StaticClass, TEXT("ANewCppGameCharacter"), &Z_Registration_Info_UClass_ANewCppGameCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANewCppGameCharacter), 1994419085U) },
+		{ Z_Construct_UClass_ANewCppGameCharacter, ANewCppGameCharacter::StaticClass, TEXT("ANewCppGameCharacter"), &Z_Registration_Info_UClass_ANewCppGameCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANewCppGameCharacter), 2972229140U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_2050598455(TEXT("/Script/NewCppGame"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_199513751(TEXT("/Script/NewCppGame"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_NewCppGameCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -11,6 +11,9 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "healthComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "ItemBase.h"
+
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -91,6 +94,8 @@ void ANewCppGameCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ANewCppGameCharacter::Look);
+
+		EnhancedInputComponent->BindAction(Interaction, ETriggerEvent::Triggered, this, &ANewCppGameCharacter::Overlap);
 	}
 	else
 	{
@@ -169,4 +174,20 @@ void ANewCppGameCharacter::HandleDeath() {
 
 			UserCon->DisableInput(UserCon);
 		}
+}
+
+void ANewCppGameCharacter::Overlap(const FInputActionInstance& Instance) {
+
+	FVector SpherePos = GetActorLocation();
+	float SphereRadius = 300.f;
+	TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
+	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldDynamic));
+	TArray<AActor*> ActorsToIgnore;
+	ActorsToIgnore.Add(this);
+	
+	TArray<AActor*> OverlappedActors;
+
+
+	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), SpherePos, SphereRadius, ObjectTypes, AItemBase::StaticClass(), ActorsToIgnore, OverlappedActors);
+	DrawDebugSphere(GetWorld(), SpherePos, SphereRadius, 16, FColor::White, false, 5.f, 0, 2.f);
 }
