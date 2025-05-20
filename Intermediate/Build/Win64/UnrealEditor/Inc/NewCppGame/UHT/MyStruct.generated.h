@@ -21,6 +21,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> NEWCPPGAME_API UScriptStruct* StaticStruct<struct FMyHealthStruct>();
 
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_MyStruct_h_30_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FItemStruct_Statics; \
+	static class UScriptStruct* StaticStruct();
+
+
+template<> NEWCPPGAME_API UScriptStruct* StaticStruct<struct FItemStruct>();
+
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_Unreal_Projects_NewCppGame_Source_NewCppGame_MyStruct_h
 

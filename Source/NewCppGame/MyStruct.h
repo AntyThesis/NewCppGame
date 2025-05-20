@@ -23,3 +23,22 @@ public:
 	FMyHealthStruct();
 	~FMyHealthStruct();
 };
+
+USTRUCT(BlueprintType)
+struct NEWCPPGAME_API FItemStruct
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, Category = "ItemVariables")
+	FString ItemName;
+
+	UPROPERTY(EditAnywhere, Category = "ItemVariables")
+	UStaticMesh* Mesh;
+
+	UPROPERTY(EditAnywhere, Category = "ItemVariables")
+	int ItemID;
+
+public:
+	FItemStruct();
+	~FItemStruct();
+};

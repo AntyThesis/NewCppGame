@@ -60,6 +60,18 @@
     <ClCompile Include="..\..\Source\NewCppGame\healthComponent.h">
       <Filter>Source\NewCppGame</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\InteractInterface.cpp">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\InteractInterface.h">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\ItemBase.cpp">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\ItemBase.h">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\NewCppGame\MyStruct.cpp">
       <Filter>Source\NewCppGame</Filter>
     </ClCompile>

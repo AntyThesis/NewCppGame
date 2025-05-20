@@ -12,3 +12,10 @@ FMyHealthStruct::FMyHealthStruct()
 FMyHealthStruct::~FMyHealthStruct()
 {
 }
+
+FItemStruct::FItemStruct() {
+
+}
+FItemStruct::~FItemStruct() {
+
+}

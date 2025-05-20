@@ -13,6 +13,7 @@ class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
 class UhealthComponent;
+class AItemBase;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -47,6 +48,9 @@ class ANewCppGameCharacter : public ACharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Health, meta = (AllowPrivateAccess = "true"))
 	UhealthComponent* HealthComponent;
+
+	UPROPERTY(VisibleAnywhere,Category = "Inventory")
+	TArray<AItemBase*> Inventory;
 
 public:
 	ANewCppGameCharacter();
