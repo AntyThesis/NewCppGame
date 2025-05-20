@@ -150,7 +150,7 @@ void ANewCppGameCharacter::BeginPlay() {
 
 void ANewCppGameCharacter::HandleHealthChange() {
 	if (GEngine) {
-		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), HealthComponent->CurrentHealth));
+		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), HealthComponent->Health.CurrentHealth));
 	}
 }
 
@@ -158,13 +158,12 @@ void ANewCppGameCharacter::HandleDeath() {
 
 
 	if (GetMesh()) {
-		// GetMesh()->SetCollisionProfileName(TEXT("Ragdoll"));
+		
 		GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		GetMesh()->SetSimulatePhysics(true);
 			}
 	
 
-		//APlayerController* PlayerController = Cast<APlayerController>(GetController());
 	APlayerController* UserCon = Cast<APlayerController>(GetController());
 	if (UserCon){
 

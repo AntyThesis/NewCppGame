@@ -7,7 +7,7 @@
 #include "EnemyCharacter.generated.h"
 
 class UhealthComponent;
-//class AAIController;
+
 
 UCLASS()
 class NEWCPPGAME_API AEnemyCharacter : public ACharacter

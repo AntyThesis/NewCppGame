@@ -30,15 +30,9 @@ struct Z_Construct_UClass_AEnemyCharacter_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//class AAIController;\n" },
-#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "EnemyCharacter.h" },
 		{ "ModuleRelativePath", "EnemyCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "class AAIController;" },
-#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HealthComponent_MetaData[] = {
 		{ "Category", "Health" },
@@ -99,10 +93,10 @@ AEnemyCharacter::~AEnemyCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemyCharacter, AEnemyCharacter::StaticClass, TEXT("AEnemyCharacter"), &Z_Registration_Info_UClass_AEnemyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyCharacter), 3427261109U) },
+		{ Z_Construct_UClass_AEnemyCharacter, AEnemyCharacter::StaticClass, TEXT("AEnemyCharacter"), &Z_Registration_Info_UClass_AEnemyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyCharacter), 2748512036U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyCharacter_h_2949717625(TEXT("/Script/NewCppGame"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyCharacter_h_3079525258(TEXT("/Script/NewCppGame"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_EnemyCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

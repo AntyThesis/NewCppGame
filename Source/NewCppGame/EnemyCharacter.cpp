@@ -4,6 +4,7 @@
 #include "EnemyCharacter.h"
 #include "healthComponent.h"
 #include "EnemyController.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AEnemyCharacter::AEnemyCharacter()
@@ -15,9 +16,11 @@ AEnemyCharacter::AEnemyCharacter()
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 
 	HealthComponent = CreateDefaultSubobject<UhealthComponent>(TEXT("Health Component"));
-	HealthComponent->MaxHealth = 50.f;
-	HealthComponent->CurrentHealth = 0;
+	HealthComponent->Health.MaxHealth = 50.f;
+	HealthComponent->Health.CurrentHealth = 0;
 
+	UCharacterMovementComponent* Movement = this->GetCharacterMovement();
+	Movement->MaxWalkSpeed = 300.f;
 
 }
 
@@ -26,7 +29,7 @@ void AEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	HealthComponent->CurrentHealth = HealthComponent->MaxHealth;
+	HealthComponent->Health.CurrentHealth = HealthComponent->Health.MaxHealth;
 }
 
 // Called every frame

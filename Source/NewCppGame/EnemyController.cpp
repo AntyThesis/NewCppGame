@@ -39,14 +39,3 @@ void AEnemyController::OnPossess(APawn* ControlledPawn) {
 	}
 }
 
-/*void AEnemyController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) {
-
-	Super::OnMoveCompleted(RequestID,Result);
-
-	if (Result.IsSuccess()) {
-		BlackBoardComponent->SetValueAsBool("MoveSuccesful", true);
-	}
-	else {
-		BlackBoardComponent->SetValueAsBool("MoveSuccesful", false);
-	}
-}*/

@@ -60,6 +60,12 @@
     <ClCompile Include="..\..\Source\NewCppGame\healthComponent.h">
       <Filter>Source\NewCppGame</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\MyStruct.cpp">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NewCppGame\MyStruct.h">
+      <Filter>Source\NewCppGame</Filter>
+    </ClCompile>
     <None Include="..\..\Source\NewCppGame\NewCppGame.Build.cs">
       <Filter>Source\NewCppGame</Filter>
     </None>

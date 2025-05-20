@@ -14,20 +14,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define NEWCPPGAME_healthComponent_generated_h
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_10_DELEGATE \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_11_DELEGATE \
 NEWCPPGAME_API void FOnHealthChanged_DelegateWrapper(const FMulticastScriptDelegate& OnHealthChanged);
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_11_DELEGATE \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_12_DELEGATE \
 NEWCPPGAME_API void FOnDeath_DelegateWrapper(const FMulticastScriptDelegate& OnDeath);
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execRIP); \
 	DECLARE_FUNCTION(execAffectHealth);
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUhealthComponent(); \
 	friend struct Z_Construct_UClass_UhealthComponent_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(UhealthComponent)
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UhealthComponent(UhealthComponent&&); \
@@ -48,13 +48,13 @@ public: \
 	NO_API virtual ~UhealthComponent();
 
 
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_13_PROLOG
-#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_GENERATED_BODY \
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_14_PROLOG
+#define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_16_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_NewCppGame_Source_NewCppGame_healthComponent_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

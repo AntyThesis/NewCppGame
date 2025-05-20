@@ -38,5 +38,5 @@ public:
 
 	virtual void BeginPlay() override;
 
-	//virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
+
 };

@@ -11,8 +11,9 @@ UhealthComponent::UhealthComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
-	MaxHealth = 100.f;
-	CurrentHealth = 0.f;
+	Health.MaxHealth = 100.f;
+	Health.CurrentHealth = 0.f;
+
 
 }
 
@@ -24,9 +25,9 @@ void UhealthComponent::BeginPlay()
 
 	// ...
 
-	CurrentHealth = MaxHealth;
+	Health.CurrentHealth = Health.MaxHealth;
 	if (GEngine) {
-		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), MaxHealth));
+		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, FString::Printf(TEXT("%.2f"), Health.MaxHealth));
 	}
 	
 }
@@ -42,8 +43,8 @@ void UhealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 
 void UhealthComponent::AffectHealth(float HealthChangeAmount) {
-	CurrentHealth += HealthChangeAmount;
-	FMath::Clamp(CurrentHealth, 0, MaxHealth);
+	Health.CurrentHealth += HealthChangeAmount;
+	FMath::Clamp(Health.CurrentHealth, 0, Health.MaxHealth);
 	OnHealthChanged.Broadcast();
 
 }
