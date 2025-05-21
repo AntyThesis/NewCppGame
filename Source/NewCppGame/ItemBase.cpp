@@ -27,7 +27,7 @@ void AItemBase::Tick(float DeltaTime)
 
 }
 
-void AItemBase::Interact_Implementation() {
+void AItemBase::Interact_Implementation(ACharacter* InteractingCharacter) {
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Blue, TEXT("Picked Up"));
 	}

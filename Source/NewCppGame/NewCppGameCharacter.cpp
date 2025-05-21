@@ -13,6 +13,8 @@
 #include "healthComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "ItemBase.h"
+#include "InteractInterface.h"
+
 
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -178,16 +180,24 @@ void ANewCppGameCharacter::HandleDeath() {
 
 void ANewCppGameCharacter::Overlap(const FInputActionInstance& Instance) {
 
+	//Setup Sphere Params
 	FVector SpherePos = GetActorLocation();
 	float SphereRadius = 300.f;
 	TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
 	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldDynamic));
 	TArray<AActor*> ActorsToIgnore;
 	ActorsToIgnore.Add(this);
-	
 	TArray<AActor*> OverlappedActors;
 
-
+	
+	// Use overlap to interact with items
 	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), SpherePos, SphereRadius, ObjectTypes, AItemBase::StaticClass(), ActorsToIgnore, OverlappedActors);
 	DrawDebugSphere(GetWorld(), SpherePos, SphereRadius, 16, FColor::White, false, 5.f, 0, 2.f);
-}
+	AActor* Actor = OverlappedActors[0];
+		if (Actor && Actor->GetClass()->ImplementsInterface(UInteractInterface::StaticClass())) {
+			IInteractInterface::Execute_Interact(Actor, this);
+		}
+
+	}
+	
+

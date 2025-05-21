@@ -9,13 +9,14 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class ACharacter;
 #ifdef NEWCPPGAME_InteractInterface_generated_h
 #error "InteractInterface.generated.h already included, missing '#pragma once' in InteractInterface.h"
 #endif
 #define NEWCPPGAME_InteractInterface_generated_h
 
 #define FID_Unreal_Projects_NewCppGame_Source_NewCppGame_InteractInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void Interact_Implementation() {}; \
+	virtual void Interact_Implementation(ACharacter* InteractingCharacter) {}; \
 	DECLARE_FUNCTION(execInteract);
 
 
@@ -57,7 +58,7 @@ protected: \
 public: \
 	typedef UInteractInterface UClassType; \
 	typedef IInteractInterface ThisClass; \
-	static void Execute_Interact(UObject* O); \
+	static void Execute_Interact(UObject* O, ACharacter* InteractingCharacter); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

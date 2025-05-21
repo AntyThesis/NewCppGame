@@ -33,7 +33,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	virtual void Interact_Implementation() override;
+	virtual void Interact_Implementation(ACharacter* InteractingCharacter) override;
 
 	
 

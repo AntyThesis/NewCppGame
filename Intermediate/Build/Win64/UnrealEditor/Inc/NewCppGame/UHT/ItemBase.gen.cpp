@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_AActor();
+ENGINE_API UClass* Z_Construct_UClass_ACharacter_NoRegister();
 NEWCPPGAME_API UClass* Z_Construct_UClass_AItemBase();
 NEWCPPGAME_API UClass* Z_Construct_UClass_AItemBase_NoRegister();
 NEWCPPGAME_API UClass* Z_Construct_UClass_UInteractInterface_NoRegister();
@@ -22,14 +23,26 @@ UPackage* Z_Construct_UPackage__Script_NewCppGame();
 // Begin Class AItemBase Function Interact_Implementation
 struct Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics
 {
+	struct ItemBase_eventInteract_Implementation_Parms
+	{
+		ACharacter* InteractingCharacter;
+	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "ItemBase.h" },
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_InteractingCharacter;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBase, nullptr, "Interact_Implementation", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::NewProp_InteractingCharacter = { "InteractingCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemBase_eventInteract_Implementation_Parms, InteractingCharacter), Z_Construct_UClass_ACharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::NewProp_InteractingCharacter,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBase, nullptr, "Interact_Implementation", nullptr, nullptr, Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::ItemBase_eventInteract_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AItemBase_Interact_Implementation_Statics::ItemBase_eventInteract_Implementation_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_AItemBase_Interact_Implementation()
 {
 	static UFunction* ReturnFunction = nullptr;
@@ -41,9 +54,10 @@ UFunction* Z_Construct_UFunction_AItemBase_Interact_Implementation()
 }
 DEFINE_FUNCTION(AItemBase::execInteract_Implementation)
 {
+	P_GET_OBJECT(ACharacter,Z_Param_InteractingCharacter);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->Interact_Implementation();
+	P_THIS->Interact_Implementation(Z_Param_InteractingCharacter);
 	P_NATIVE_END;
 }
 // End Class AItemBase Function Interact_Implementation
@@ -78,7 +92,7 @@ struct Z_Construct_UClass_AItemBase_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AItemBase_Interact_Implementation, "Interact_Implementation" }, // 3017438312
+		{ &Z_Construct_UFunction_AItemBase_Interact_Implementation, "Interact_Implementation" }, // 949578034
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
@@ -98,7 +112,7 @@ UObject* (*const Z_Construct_UClass_AItemBase_Statics::DependentSingletons[])() 
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AItemBase_Statics::DependentSingletons) < 16);
 const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AItemBase_Statics::InterfaceParams[] = {
-	{ Z_Construct_UClass_UInteractInterface_NoRegister, (int32)VTABLE_OFFSET(AItemBase, IInteractInterface), false },  // 1889721103
+	{ Z_Construct_UClass_UInteractInterface_NoRegister, (int32)VTABLE_OFFSET(AItemBase, IInteractInterface), false },  // 3384914084
 };
 const UECodeGen_Private::FClassParams Z_Construct_UClass_AItemBase_Statics::ClassParams = {
 	&AItemBase::StaticClass,
@@ -135,10 +149,10 @@ AItemBase::~AItemBase() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AItemBase, AItemBase::StaticClass, TEXT("AItemBase"), &Z_Registration_Info_UClass_AItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBase), 2555970253U) },
+		{ Z_Construct_UClass_AItemBase, AItemBase::StaticClass, TEXT("AItemBase"), &Z_Registration_Info_UClass_AItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBase), 2976474198U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_3838589646(TEXT("/Script/NewCppGame"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_4043301259(TEXT("/Script/NewCppGame"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
