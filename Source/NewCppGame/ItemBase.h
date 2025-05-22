@@ -16,8 +16,11 @@ class NEWCPPGAME_API AItemBase : public AActor, public IInteractInterface
 
 public:
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "ItemVariables")
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "ItemVariables")
 	FItemStruct ItemVariables;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh")
+	UStaticMeshComponent* SuperMesh;
 
 	
 public:	

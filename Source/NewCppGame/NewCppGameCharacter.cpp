@@ -193,11 +193,16 @@ void ANewCppGameCharacter::Overlap(const FInputActionInstance& Instance) {
 	// Use overlap to interact with items
 	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), SpherePos, SphereRadius, ObjectTypes, AItemBase::StaticClass(), ActorsToIgnore, OverlappedActors);
 	DrawDebugSphere(GetWorld(), SpherePos, SphereRadius, 16, FColor::White, false, 5.f, 0, 2.f);
-	AActor* Actor = OverlappedActors[0];
+	if (OverlappedActors.Num() > 0 && OverlappedActors[0] != NULL) {
+
+		AActor* Actor = OverlappedActors[0];
+
 		if (Actor && Actor->GetClass()->ImplementsInterface(UInteractInterface::StaticClass())) {
+
 			IInteractInterface::Execute_Interact(Actor, this);
 		}
-
 	}
+
+}
 	
 

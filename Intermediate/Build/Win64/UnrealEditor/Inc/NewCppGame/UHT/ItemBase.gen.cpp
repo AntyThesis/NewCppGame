@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 NEWCPPGAME_API UClass* Z_Construct_UClass_AItemBase();
 NEWCPPGAME_API UClass* Z_Construct_UClass_AItemBase_NoRegister();
 NEWCPPGAME_API UClass* Z_Construct_UClass_UInteractInterface_NoRegister();
@@ -87,8 +88,14 @@ struct Z_Construct_UClass_AItemBase_Statics
 		{ "Category", "ItemVariables" },
 		{ "ModuleRelativePath", "ItemBase.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SuperMesh_MetaData[] = {
+		{ "Category", "Mesh" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ItemBase.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_ItemVariables;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SuperMesh;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -101,9 +108,11 @@ struct Z_Construct_UClass_AItemBase_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AItemBase_Statics::NewProp_ItemVariables = { "ItemVariables", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItemBase, ItemVariables), Z_Construct_UScriptStruct_FItemStruct, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemVariables_MetaData), NewProp_ItemVariables_MetaData) }; // 2722130779
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AItemBase_Statics::NewProp_ItemVariables = { "ItemVariables", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItemBase, ItemVariables), Z_Construct_UScriptStruct_FItemStruct, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemVariables_MetaData), NewProp_ItemVariables_MetaData) }; // 2722130779
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItemBase_Statics::NewProp_SuperMesh = { "SuperMesh", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItemBase, SuperMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SuperMesh_MetaData), NewProp_SuperMesh_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AItemBase_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItemBase_Statics::NewProp_ItemVariables,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItemBase_Statics::NewProp_SuperMesh,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AItemBase_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AItemBase_Statics::DependentSingletons[])() = {
@@ -149,10 +158,10 @@ AItemBase::~AItemBase() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AItemBase, AItemBase::StaticClass, TEXT("AItemBase"), &Z_Registration_Info_UClass_AItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBase), 2976474198U) },
+		{ Z_Construct_UClass_AItemBase, AItemBase::StaticClass, TEXT("AItemBase"), &Z_Registration_Info_UClass_AItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBase), 1438577397U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_4043301259(TEXT("/Script/NewCppGame"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_2542756817(TEXT("/Script/NewCppGame"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_NewCppGame_Source_NewCppGame_ItemBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

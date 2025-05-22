@@ -2,6 +2,8 @@
 
 
 #include "ItemBase.h"
+#include "MyStruct.h"
+
 
 // Sets default values
 AItemBase::AItemBase()
@@ -18,6 +20,8 @@ void AItemBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	SuperMesh = FindComponentByClass<UStaticMeshComponent>();
+	SuperMesh->SetStaticMesh(ItemVariables.Mesh);
 }
 
 // Called every frame
@@ -28,6 +32,12 @@ void AItemBase::Tick(float DeltaTime)
 }
 
 void AItemBase::Interact_Implementation(ACharacter* InteractingCharacter) {
+
+	if (SuperMesh) {
+		SuperMesh->SetVisibility(false);
+		SuperMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
+
 	if (GEngine) {
 		GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Blue, TEXT("Picked Up"));
 	}
